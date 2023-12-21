@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT
 
 provider "googleworkspace" {
-  
-  customer_id = "C015shyxa"
+
+  customer_id             = "C015shyxa"
   impersonated_user_email = "singh@igurarsh.com"
 
 }
@@ -22,5 +22,8 @@ resource "googleworkspace_user" "users" {
   name {
     family_name = each.value.last_name
     given_name  = each.value.first_name
+  }
+  lifecycle {
+    create_before_destroy = false
   }
 }
