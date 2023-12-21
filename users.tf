@@ -23,4 +23,5 @@ resource "googleworkspace_user" "users" {
     family_name = each.value.last_name
     given_name  = each.value.first_name
   }
+  create_before_destroy = false
 }
